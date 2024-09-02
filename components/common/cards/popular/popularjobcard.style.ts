@@ -62,6 +62,7 @@ const container = (selectedJob : number, item : ItemProps): ViewStyle => ({
     justifyContent: "space-between",
     ...SHADOWS.medium,
     shadowColor: COLORS.gray,
+    marginBottom: SIZES.xSmall,
 })
 
 export {styles, publisher, jobName, logoContainer, container};
