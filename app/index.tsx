@@ -4,8 +4,8 @@ import { Link, Stack, useRouter } from 'expo-router'
 import { COLORS, icons, images, SIZES  } from '../constants'
 import ScreenHeaderBtn from '@/components/common/header/screenHeaderBtn'
 import Welcome from '@/components/home/welcome/welcome'
-import PopularJobs from '@/components/home/popular/popularJobs'
-import NearbyJobs from '@/components/home/nearby/nearbyJobs'
+import PopularJobs from '@/components/home/popular/Popularjobs'
+import NearbyJobs from '@/components/home/nearby/Nearbyjobs'
 
 const Index : React.FC = () => {
   const router = useRouter();

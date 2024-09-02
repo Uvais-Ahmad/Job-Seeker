@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import {styles, container, jobName, logoContainer, publisher} from './popularJobCard.style'
+import {styles, container, jobName, logoContainer, publisher} from './popularjobcard.style'
 
 interface PopularJobCardProps {
     item: any;

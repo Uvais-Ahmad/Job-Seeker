@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {useRouter} from 'expo-router'
 import {COLORS, SIZES} from '@/constants'
 import styles from './popularJobs.style'
-import PopularJobCard from '@/components/common/cards/popular/popularJobCard'
+import PopularJobCard from '@/components/common/cards/popular/PopularJobCard'
 
 
 const PopularJobs = () => {
