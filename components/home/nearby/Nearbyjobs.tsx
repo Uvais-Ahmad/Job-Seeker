@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native'
 import React, {useEffect, useState} from 'react'
-import {useRouter} from 'expo-router'
+import {router, useRouter} from 'expo-router'
 import {COLORS, SIZES} from '@/constants'
 import styles from './nearbyJobs.style'
 import NearbyJobCard from '@/components/common/cards/nearby/nearbyJobCard'
@@ -88,7 +88,7 @@ const NearbyJobs = () => {
                     data.map((item, index) => (
                         <NearbyJobCard
                             item={item}
-                            handleNavigate={() => {}}
+                            handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
                         />
                     )
                 ))}
