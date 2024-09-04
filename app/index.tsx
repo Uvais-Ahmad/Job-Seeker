@@ -9,6 +9,7 @@ import NearbyJobs from '@/components/home/nearby/Nearbyjobs'
 
 const Index : React.FC = () => {
   const router = useRouter();
+  const [searchText, setSearchText] = useState<string>('');
   return (
     <SafeAreaView style={styles.root}>
       <Stack.Screen
@@ -34,7 +35,15 @@ const Index : React.FC = () => {
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.scrollViewView}>
-          <Welcome />
+          <Welcome 
+            searchText={searchText}
+            setSearchText={setSearchText}
+            handleClick={() => {
+              if(searchText) {
+                router.push(`/search/${searchText}` as any)
+              }
+            }}
+          />
           <PopularJobs />
           <NearbyJobs />
         </View>

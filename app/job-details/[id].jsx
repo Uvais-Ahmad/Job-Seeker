@@ -18,19 +18,22 @@ const JobDetails = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
     
     const {data, isLoading, error, refetch} = {data: {
-        companyLogo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+        companyLogo: 'https://pngimg.com/uploads/amazon/amazon_PNG13.png',
         companyName: 'Google',
         jobTitle: 'Software Engineer',
         location: 'Mountain View, CA'
-    }, isLoading: false, error: null, refetch: null}
+    }, isLoading: false, error: null, refetch: () => {}}
     // useFetch(
     //     'job-details', {
     //         job_id : params.id
     //     }
     // )
     const [refreshing, setRefreshing] = useState(false)
-    const handleOnRefresh = () => {
-    }
+    const handleOnRefresh = useCallback(() => {
+        setRefreshing(true);
+        refetch();
+        setRefreshing(false);
+    }, [])
 
     const displayTabContent = () => {
         switch(selectedTab) {
