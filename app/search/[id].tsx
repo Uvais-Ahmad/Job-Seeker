@@ -8,11 +8,13 @@ import NearbyJobCard from '@/components/common/cards/nearby/nearbyJobCard'
 import ScreenHeaderBtn from '@/components/common/header/screenHeaderBtn'
 import { COLORS, icons, SIZES } from '../../constants'
 import styles from '../../styles/search'
+// import {rapidApiKey} from 
+import {RAPID_API_KEY } from '@env'
+import useFetch from '@/hooks/useFetch'
 
 const JobSearch = () => {
     const params = useLocalSearchParams();
     const router = useRouter()
-
     const [searchResult, setSearchResult] = useState([{
         job_id: "",
         job_title: "",
@@ -34,15 +36,15 @@ const JobSearch = () => {
 
     const handleSearch = async () => {
         setSearchLoader(true);
-        setSearchResult([])
+        setSearchResult([]);
 
         try {
             const options = {
                 method: "GET",
                 url: `https://jsearch.p.rapidapi.com/search`,
                 headers: {
-                    "X-RapidAPI-Key": process.env.RAPIC_API_KEY,
-                    "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
+                    'x-rapidapi-key': RAPID_API_KEY,
+                    'x-rapidapi-host': "jsearch.p.rapidapi.com",
                 },
                 params: {
                     query: params.id,

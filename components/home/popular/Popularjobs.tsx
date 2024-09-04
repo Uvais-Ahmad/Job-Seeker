@@ -4,11 +4,13 @@ import {useRouter} from 'expo-router'
 import {COLORS, SIZES} from '@/constants'
 import styles from './popularJobs.style'
 import PopularJobCard from '@/components/common/cards/popular/PopularJobCard'
+import useFetch from '@/hooks/useFetch'
 
 
 const PopularJobs = () => {
     const router = useRouter();
-    const {data, isLoading, error} = {
+    const {data, isLoading, error} = 
+    {
         data: [{
             job_id: 1,
             employer_logo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
@@ -39,7 +41,7 @@ const PopularJobs = () => {
             job_country: 'India',
         }], 
         isLoading: false, error: null};
-    // useFetch('search', {
+    // useFetch('GET','search', {
     //     query: 'React Developer',
     //     num_pages: 1,
     // });

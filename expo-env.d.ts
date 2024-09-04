@@ -1,3 +1,5 @@
-/// <reference types="expo/types" />
-
-// NOTE: This file should not be edited and should be in your git ignore
+// env.d.ts
+declare module '@env' {
+    export const RAPID_API_KEY: string;
+    // add more environment variables as needed
+}

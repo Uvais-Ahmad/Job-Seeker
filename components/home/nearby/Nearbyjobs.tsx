@@ -4,6 +4,7 @@ import {router, useRouter} from 'expo-router'
 import {COLORS, SIZES} from '@/constants'
 import styles from './nearbyJobs.style'
 import NearbyJobCard from '@/components/common/cards/nearby/nearbyJobCard'
+import useFetch from '@/hooks/useFetch'
 
 
 const NearbyJobs = () => {
@@ -67,7 +68,7 @@ const NearbyJobs = () => {
             },
         ], 
         isLoading: false, error: null};
-    // useFetch('search', {
+    // useFetch('GET','search', {
     //     query: 'React Developer',
     //     num_pages: 1,
     // });
@@ -88,6 +89,7 @@ const NearbyJobs = () => {
                     data.map((item, index) => (
                         <NearbyJobCard
                             item={item}
+                            key={index}
                             handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
                         />
                     )

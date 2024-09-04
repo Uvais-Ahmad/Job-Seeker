@@ -17,17 +17,25 @@ const JobDetails = () => {
     const tabs = ["About", "Qualifications", "Responsibilities", "Benefits", "Apply"]
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
     
-    const {data, isLoading, error, refetch} = {data: {
+    const {data, isLoading, error, refetch} = 
+    {data: [{
         companyLogo: 'https://pngimg.com/uploads/amazon/amazon_PNG13.png',
         companyName: 'Google',
         jobTitle: 'Software Engineer',
-        location: 'Mountain View, CA'
-    }, isLoading: false, error: null, refetch: () => {}}
-    // useFetch(
-    //     'job-details', {
-    //         job_id : params.id
-    //     }
-    // )
+        location: 'Mountain View, CA',
+        job_description: 'This is a job description',
+        job_highlights: {
+            Qualifications: ['BSc in Computer Science', '5 years experience'],
+            Responsibilities: ['Develop software', 'Test software'],
+            Benefits: ['Health insurance', '401k'],
+            Apply: ['Apply here']
+        },
+        job_google_link: 'https://www.google.com'
+
+    }], isLoading: false, error: null, refetch: () => {}}
+
+    // useFetch('GET', 'job-details', {job_id: params.id});
+    
     const [refreshing, setRefreshing] = useState(false)
     const handleOnRefresh = useCallback(() => {
         setRefreshing(true);
@@ -61,14 +69,14 @@ const JobDetails = () => {
                 return (
                     <Specifics 
                         title='Benefits'
-                        points={data[0]?.job_highlights ?? ['N/A']}
+                        points={data[0]?.job_highlights?.Benefits ?? ['N/A']}
                     />
                 )
             case "Apply":
                 return (
                     <Specifics 
                         title='Apply'
-                        points={data[0]?.job_highlights ?? ['N/A']}
+                        points={data[0]?.job_highlights?.Apply ?? ['N/A']}
                     />
                 )
             default:
@@ -90,14 +98,14 @@ const JobDetails = () => {
                     headerLeft: () => (
                         <ScreenHeaderBtn 
                             iconUrl={icons.left}
-                            onPress={() => router.back()}
+                            handlePress={() => router.back()}
                             dimensions='60%'
                         />
                     ),
                     headerRight: () => (
                         <ScreenHeaderBtn 
                             iconUrl={icons.share}
-                            onPress={() => {}}
+                            handlePress={() => {}}
                             dimensions='60%'
                         />
                     ),
@@ -120,10 +128,10 @@ const JobDetails = () => {
                         <View style={{padding: SIZES.medium, paddingBottom: 100 }}>
                             {/* <Text>Job Details</Text> */}
                             <Company 
-                                companyLogo={data.companyLogo}
-                                companyName={data.companyName}
-                                jobTitle={data.jobTitle}
-                                location={data.location}
+                                companyLogo={data[0].companyLogo}
+                                companyName={data[0].companyName}
+                                jobTitle={data[0].jobTitle}
+                                location={data[0].location}
                             />
                             <Tabs 
                                 tabs={tabs}
