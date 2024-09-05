@@ -52,6 +52,18 @@ const styles = StyleSheet.create({
         fontFamily: FONT.bold,
         fontSize: SIZES.medium,
         color: COLORS.primary
+    },
+    errorMessageBox: {
+        marginTop: SIZES.medium,
+        padding: SIZES.medium,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    errorMessageText : {
+        color: COLORS.tertiary,
+        fontFamily: FONT.bold,
+        fontSize: SIZES.medium,
     }
 });
 

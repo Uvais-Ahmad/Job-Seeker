@@ -113,13 +113,15 @@ const JobSearch = () => {
                             {searchLoader ? (
                                 <ActivityIndicator size='large' color={COLORS.primary} />
                             ) : searchError && (
-                                <Text>Oops something went wrong</Text>
+                                <SafeAreaView style={styles.errorMessageBox}>
+                                    <Text style={styles.errorMessageText}>Oops, You have reached API Request Limit</Text>
+                                </SafeAreaView>
                             )}
                         </View>
                     </>
                 )}
                 ListFooterComponent={() => (
-                    <View style={styles.footerContainer}>
+                    !searchError && <View style={styles.footerContainer}>
                         <TouchableOpacity
                             style={styles.paginationButton}
                             onPress={() => handlePagination('left')}
