@@ -3,7 +3,7 @@ import React , {useState} from 'react'
 import { Link, Stack, useRouter } from 'expo-router'
 import { COLORS, icons, images, SIZES  } from '../constants'
 import ScreenHeaderBtn from '@/components/common/header/screenHeaderBtn'
-import Welcome from '@/components/home/welcome/welcome'
+import Welcome from '@/components/home/welcome/Welcome'
 import PopularJobs from '@/components/home/popular/Popularjobs'
 import NearbyJobs from '@/components/home/nearby/Nearbyjobs'
 
