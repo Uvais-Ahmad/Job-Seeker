@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, SafeAreaView, ActivityIndicator, RefreshControl } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useRouter, Stack, useLocalSearchParams, router } from 'expo-router'
 import { useCallback, useState } from 'react'
 import {COLORS, icons, SIZES} from '../../constants'
@@ -18,23 +18,28 @@ const JobDetails = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
     
     const {data, isLoading, error, refetch} = 
-    {data: [{
-        companyLogo: 'https://pngimg.com/uploads/amazon/amazon_PNG13.png',
-        companyName: 'Google',
-        jobTitle: 'Software Engineer',
-        location: 'Mountain View, CA',
-        job_description: 'This is a job description',
-        job_highlights: {
-            Qualifications: ['BSc in Computer Science', '5 years experience'],
-            Responsibilities: ['Develop software', 'Test software'],
-            Benefits: ['Health insurance', '401k'],
-            Apply: ['Apply here']
-        },
-        job_google_link: 'https://www.google.com'
+    // {data: [{
+    //     companyLogo: 'https://pngimg.com/uploads/amazon/amazon_PNG13.png',
+    //     companyName: 'Google',
+    //     jobTitle: 'Software Engineer',
+    //     location: 'Mountain View, CA',
+    //     job_description: 'This is a job description',
+    //     job_highlights: {
+    //         Qualifications: ['BSc in Computer Science', '5 years experience'],
+    //         Responsibilities: ['Develop software', 'Test software'],
+    //         Benefits: ['Health insurance', '401k'],
+    //         Apply: ['Apply here']
+    //     },
+    //     job_google_link: 'https://www.google.com'
 
-    }], isLoading: false, error: null, refetch: () => {}}
+    // }], isLoading: false, error: null, refetch: () => {}}
 
-    // useFetch('GET', 'job-details', {job_id: params.id});
+    useFetch('GET', 'job-details', {job_id: params.id});
+
+    useEffect(() => {
+        console.log("=================================================")
+        console.log("Data in details page : ", data);
+    }, [data]);
     
     const [refreshing, setRefreshing] = useState(false)
     const handleOnRefresh = useCallback(() => {
@@ -128,10 +133,10 @@ const JobDetails = () => {
                         <View style={{padding: SIZES.medium, paddingBottom: 100 }}>
                             {/* <Text>Job Details</Text> */}
                             <Company 
-                                companyLogo={data[0].companyLogo}
-                                companyName={data[0].companyName}
-                                jobTitle={data[0].jobTitle}
-                                location={data[0].location}
+                                companyLogo={data[0]?.employer_logo ?? 'https://cdn-icons-png.flaticon.com/512/3090/3090108.png'}
+                                jobTitle={data[0]?.job_title}
+                                companyName={data[0]?.employer_name}
+                                location={data[0]?.job_country}
                             />
                             <Tabs 
                                 tabs={tabs}

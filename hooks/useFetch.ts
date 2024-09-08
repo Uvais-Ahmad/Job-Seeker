@@ -33,7 +33,7 @@ const useFetch = (method : methodType, endpoint: string, query: Record<string, a
     try {
       const response = await axios.request(options);
       setData(response.data.data); 
-      console.log("Response :==================");
+      console.log("Response :==================", response.data.data?.length);
     } catch (error) {
       setError(error as AxiosError);
       console.error(error);
