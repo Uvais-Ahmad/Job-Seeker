@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
-import { RAPID_API_KEY } from "@env";
+// import { RAPID_API_KEY } from "@env";
 
 interface FetchDataResponse<T = any> {
   data: T[];
@@ -11,6 +11,7 @@ interface FetchDataResponse<T = any> {
 type methodType = "GET" | "POST" | "PUT" | "DELETE";
 
 const useFetch = (method : methodType, endpoint: string, query: Record<string, any> = {}): FetchDataResponse => {
+  const rapidAPIKey  = process.env.EXPO_PUBLIC_RAPID_API_KEY;
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError | null>(null);
@@ -19,7 +20,7 @@ const useFetch = (method : methodType, endpoint: string, query: Record<string, a
     method: method,
     url: `https://jsearch.p.rapidapi.com/${endpoint}`,
     headers: {
-      'x-rapidapi-key': RAPID_API_KEY,
+      'x-rapidapi-key': rapidAPIKey,
       'x-rapidapi-host': "jsearch.p.rapidapi.com",
     },
     params: query,
@@ -32,7 +33,7 @@ const useFetch = (method : methodType, endpoint: string, query: Record<string, a
     try {
       const response = await axios.request(options);
       setData(response.data.data); 
-      console.log("Response :==================");
+      console.log("Response :==================", response.data.data?.length);
     } catch (error) {
       setError(error as AxiosError);
       console.error(error);

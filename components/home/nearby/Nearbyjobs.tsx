@@ -8,76 +8,77 @@ import useFetch from '@/hooks/useFetch'
 
 
 const NearbyJobs = () => {
-    const {data, isLoading, error} = {
-        data: [
-            {
-                job_id: 1,
-                employer_logo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                employer_name: 'Google',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 2,
-                employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
-                employer_name: 'Facebook',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 3,
-                employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
-                employer_name: 'Amazon',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 2,
-                employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
-                employer_name: 'Facebook',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 3,
-                employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
-                employer_name: 'Amazon',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 2,
-                employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
-                employer_name: 'Facebook',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-            {
-                job_id: 3,
-                employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
-                employer_name: 'Amazon',
-                job_title: 'React Developer',
-                job_country: 'United States',
-                job_employment_type: 'Full Time',
-            },
-        ], 
-        isLoading: false, error: null};
-    // useFetch('GET','search', {
-    //     query: 'React Developer',
-    //     num_pages: 1,
-    // });
+    const {data, isLoading, error} = 
+    // {
+    //     data: [
+    //         {
+    //             job_id: 1,
+    //             employer_logo: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    //             employer_name: 'Google',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 2,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
+    //             employer_name: 'Facebook',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 3,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
+    //             employer_name: 'Amazon',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 2,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
+    //             employer_name: 'Facebook',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 3,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
+    //             employer_name: 'Amazon',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 2,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/106/850/png-transparent-facebook-icon-logo-blue-square-symbol-social-facebook-blue-rectangle-logo-thumbnail.png',
+    //             employer_name: 'Facebook',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //         {
+    //             job_id: 3,
+    //             employer_logo: 'https://w7.pngwing.com/pngs/832/502/png-transparent-amazon-logo-text-brand-amazon-text-service-retail-thumbnail.png',
+    //             employer_name: 'Amazon',
+    //             job_title: 'React Developer',
+    //             job_country: 'United States',
+    //             job_employment_type: 'Full Time',
+    //         },
+    //     ], 
+    //     isLoading: false, error: null};
+    useFetch('GET','search', {
+        query: 'React Native Developer',
+        num_pages: 1,
+    });
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>Nearby Jobs</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push('/search/React Native Developer')}>
                     <Text style={styles.headerBtn}>See All</Text>
                 </TouchableOpacity>
             </View>

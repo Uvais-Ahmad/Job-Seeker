@@ -17,7 +17,7 @@ const PopularJobCard : React.FC<PopularJobCardProps> = ({item, selectedJob, hand
         >
             <TouchableOpacity style={logoContainer(selectedJob, item)}>
                 <Image
-                    source={{uri: item.employer_logo}}
+                    source={{uri: item.employer_logo ?? 'https://png.pngtree.com/png-clipart/20210616/ourmid/pngtree-modern-office-job-vacancy-announcement-illustration-png-image_3475706.jpg'}}
                     style={styles.logoImage}
                     resizeMode="contain"
                 />
